@@ -1,0 +1,62 @@
+aside {
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+
+    height: 100vh;
+
+    padding: $padding;
+    background: transparentize($black, 0.15);
+
+    transform: translate(-110%);
+
+
+    transition: all 0.3s;
+
+    overflow-x: scroll;
+
+
+    &.visible {
+        transform: translate(0);
+    }
+
+    @media(min-width: $mobile_width) {
+        transform: translate(0);
+        width: $aside_width;
+        right: 0;
+        background: transparentize($black, 0.5);
+
+    }
+
+
+
+}
+
+// end of aside
+
+
+
+
+$menu_size: 35px;
+
+#menu_button {
+    position: fixed;
+    top: 7px;
+    right: 10px;
+    height: $menu_size;
+    width: $menu_size;
+    display: inline-block;
+    z-index: 30;
+    cursor: pointer;
+
+    span {
+        display: block;
+        text-indent: -9999px;
+    }
+
+    @media(min-width: $mobile_width) {
+        display: none;
+    }
+
+}

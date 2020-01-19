@@ -1,0 +1,52 @@
+$brand_color: #0A9C7E;
+$red: #7E2982;
+
+
+$background_color: #222;
+
+$black: #111;
+$dark_grey: #ccc;
+$medium_grey: #aaa;
+$light_grey: #f1f1f1;
+
+$font_color: #f1f1f1;
+
+$font_stack: 'Work Sans',
+arial,
+helvetica,
+'ubuntu',
+verdana,
+sans-serif;
+
+
+
+
+$font_size: 1.5em;
+$line_height: 160%;
+
+
+
+$mobile_width: 768px;
+$aside_width: 320px;
+
+
+$padding: 20px;
+$double_padding: #{$padding * 2};
+$half_padding: #{$padding * 0.5};
+
+@mixin linear-gradient($direction, $color-stops...) {
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+    background: linear-gradient($direction, $color-stops);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

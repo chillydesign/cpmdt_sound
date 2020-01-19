@@ -1,0 +1,34 @@
+header {
+    padding: $padding 0 $padding;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    a {
+        font-size: $font_size;
+        width: 45%;
+        display: inline-block;
+        font-weight: bold;
+        background: no-repeat center center;
+        background-size: contain;
+        height: 70px;
+        text-indent: -9999px;
+
+        &.branding {
+            background-image: url('../img/logo-cpmdt-white.png');
+            background-position: center right;
+        }
+
+
+        &.exploration {
+
+            background-image: url('../img/explorationsonore-logo.png');
+            background-position: center left;
+            height: 50px;
+
+
+
+        }
+    }
+
+}
