@@ -94,7 +94,7 @@
 <br>
         <h2>Comments</h2>
 
-          
+        <?php comment_form(); ?>
          
         <ul  class="comments_container">
 
@@ -108,7 +108,7 @@
             </ul>
 
 
-<?php comment_form(); ?>
+
 
 
      

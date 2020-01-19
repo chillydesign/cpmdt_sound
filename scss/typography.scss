@@ -49,15 +49,27 @@ a {
 }
 
 
+form {
+    padding: 0 0 20px;
+
+    p {
+        padding: 0 0 5px;
+    }
+}
+
 input[type="text"],
 textarea {
     width: 100%;
-    padding: $half_padding;
-    font-size: $font_size;
+    padding: 5px;
+    font-size: 1.3em;
     font-family: $font_stack;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
 }
 
 textarea {
 
-    height: 100px;
+    height: 60px;
 }
