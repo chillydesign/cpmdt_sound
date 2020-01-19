@@ -92,7 +92,7 @@
 
     <aside id="aside">
 <br>
-        <h2>Comments</h2>
+        <h2>Commentaires</h2>
 
         <?php comment_form(); ?>
          
