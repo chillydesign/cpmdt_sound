@@ -5,7 +5,9 @@
 @import 'footer';
 @import 'sidebar';
 
-
+html {
+    scroll-behavior: smooth;
+}
 
 
 body {
@@ -182,7 +184,8 @@ ul.comments_container {
             padding: $half_padding 0;
             margin: 0 0 $half_padding 0;
             position: sticky;
-            top: 10px;
+            top: 30px;
+
 
             h3 {
                 margin: 0;
@@ -242,5 +245,43 @@ ul.comments_container {
                 border-top: 1px solid #0A9C7E;
             }
         }
+    }
+}
+
+
+.scroll_link_container {
+    position: absolute;
+    top: 7px;
+    left: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    right: 2px;
+}
+
+.scroll_playlist {
+    flex: 1 auto;
+    background: no-repeat center center;
+    background-size: contain;
+    width: 32px;
+    max-width: 32px;
+    height: 32px;
+    text-indent: -9999px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px;
+
+    margin: 0 5px;
+
+    &.prev_playlist {
+        background-image: url('../img/chevron_up.svg');
+    }
+
+    &.next_playlist {
+        background-image: url('../img/chevron_down.svg');
+    }
+
+    @media(min-width: $mobile_width) {
+        display: none;
     }
 }

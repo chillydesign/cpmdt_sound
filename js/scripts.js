@@ -23,12 +23,9 @@ function onYouTubeIframeAPIReady() {
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
     // event.target.playVideo();
-
-    console.log(event.target);
+    // console.log(event.target);
 
     loadPlaylists();
-
-
 
 }
 
@@ -46,9 +43,7 @@ function loadPlaylists() {
 
         setTimeout(() => {
             getVideosFromPlaylist(playlistId, vidcon, loadFirstVideo);
-        }, i * 500);
-
-
+        }, i * 650);
 
 
     }
@@ -75,62 +70,68 @@ function getVideosFromPlaylist(playlist, parent, loadFirstVideo) {
         let first_video_id = null;
 
 
-        items.forEach(item => {
-            const videoId = item.snippet.resourceId.videoId;
-            const title = item.snippet.title;
+        if (items) {
+            items.forEach(item => {
+                const videoId = item.snippet.resourceId.videoId;
+                const title = item.snippet.title;
 
-            if (first_video_id == null && loadFirstVideo) {
-                first_video_id = videoId;
-            }
-
-
-            var node = document.createElement("DIV");
-            node.classList.add('small_video_container');
-
-            var img = document.createElement("IMG");
-            if (item.snippet.thumbnails.default) {
-                img.src = item.snippet.thumbnails.default.url;
-            }
+                if (first_video_id == null && loadFirstVideo) {
+                    first_video_id = videoId;
+                }
 
 
-            node.appendChild(img);
+                var node = document.createElement("DIV");
+                node.classList.add('small_video_container');
 
-            var h3 = document.createElement('H3');
-            var h3text = document.createTextNode(title);
-            h3.appendChild(h3text);
-            node.appendChild(h3);
-
-
-            node.addEventListener('click', function () {
-                // console.log('VIDEO PLAYING: ', videoId);
-                player.loadVideoById({
-                    'videoId': videoId
-                });
-
-                document.body.scrollTop = 0; // For Safari
-                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-            })
+                var img = document.createElement("IMG");
+                if (item.snippet.thumbnails.default) {
+                    img.src = item.snippet.thumbnails.default.url;
+                }
 
 
-            parent.appendChild(node);
+                node.appendChild(img);
+
+                var h3 = document.createElement('H3');
+                var h3text = document.createTextNode(title);
+                h3.appendChild(h3text);
+                node.appendChild(h3);
+
+
+                node.addEventListener('click', function () {
+                    // console.log('VIDEO PLAYING: ', videoId);
+                    player.loadVideoById({
+                        'videoId': videoId
+                    });
+
+                    scrollToPos(0);
+                })
+
+
+                parent.appendChild(node);
 
 
 
-        });
-
-        // load first video of first playlist automatically
-        if (first_video_id) {
-
-            player.loadVideoById({
-                'videoId': first_video_id
             });
 
+            // load first video of first playlist automatically
+            if (first_video_id) {
+
+                player.loadVideoById({
+                    'videoId': first_video_id
+                });
+
+            }
         }
 
 
     });
 
 
+}
+
+function scrollToPos(x) {
+    document.body.scrollTop = x; // For Safari
+    document.documentElement.scrollTop = x; // For Chrome, Firefox, IE and Opera
 }
 
 
@@ -150,6 +151,21 @@ function stopVideo() {
 }
 
 
+
+
+// const playlists_container = document.getElementById('playlists_container');
+const scroll_playlist_links = document.getElementsByClassName('scroll_playlist');
+for (let i = 0; i < scroll_playlist_links.length; i++) {
+    const scroll_playlist_link = scroll_playlist_links[i];
+    scroll_playlist_link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const link = document.querySelector(scroll_playlist_link.hash);
+        // const x = link.offsetTop; // playlists_container.offsetTop + 
+        // scrollToPos(x);
+
+        link.scrollIntoView();
+    })
+}
 
 
 

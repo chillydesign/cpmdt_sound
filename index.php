@@ -39,38 +39,48 @@
         </div>
 
 
-        <div class="playlists_container">
+        <div id="playlists_container" class="playlists_container">
 
-        <?php $playlist_1 = get_post_meta($post_id,'playlist_1', true); ?>
-        <?php $playlist_1_title = get_post_meta($post_id,'playlist_1_title', true); ?>
-        <?php $playlist_2 = get_post_meta($post_id,'playlist_2', true); ?>
-        <?php $playlist_2_title = get_post_meta($post_id,'playlist_2_title', true); ?>
-        <?php $playlist_3 = get_post_meta($post_id,'playlist_3', true); ?>
-        <?php $playlist_3_title = get_post_meta($post_id,'playlist_3_title', true); ?>
+            <?php $playlist_1 = get_post_meta($post_id,'playlist_1', true); ?>
+            <?php $playlist_1_title = get_post_meta($post_id,'playlist_1_title', true); ?>
+            <?php $playlist_2 = get_post_meta($post_id,'playlist_2', true); ?>
+            <?php $playlist_2_title = get_post_meta($post_id,'playlist_2_title', true); ?>
+            <?php $playlist_3 = get_post_meta($post_id,'playlist_3', true); ?>
+            <?php $playlist_3_title = get_post_meta($post_id,'playlist_3_title', true); ?>
 
             <div class="columns">
                 <div class="column">
-                    <div class="playlist_container platlist_vid">
+                    <div class="playlist_container" id="platlist_vid">
                         <div class="playlist_header">
                             <h3><?php echo $playlist_1_title; ?></h3>
+                            <div class="scroll_link_container">
+                                <a href="#playlist_sab" class="scroll_playlist next_playlist">Next</a>
+                            </div>
                         </div>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_1; ?>">
                         </div>
                     </div>
                 </div>
                 <div class="column">
-                    <div class="playlist_container playlist_sab">
+                    <div class="playlist_container" id="playlist_sab">
                         <div class="playlist_header">
                             <h3><?php echo $playlist_2_title; ?></h3>
+                            <div class="scroll_link_container">
+                                <a href="#platlist_vid" class="scroll_playlist prev_playlist">Previous</a>
+                                <a href="#playlist_ent" class="scroll_playlist next_playlist">Next</a>
+                            </div>
                         </div>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_2; ?>">
                         </div>
                     </div>
                 </div>
                 <div class="column">
-                    <div class="playlist_container playlist_ent">
+                    <div class="playlist_container" id="playlist_ent">
                         <div class="playlist_header">
                             <h3><?php echo $playlist_3_title; ?></h3>
+                            <div class="scroll_link_container">
+                                <a href="#playlist_sab" class="scroll_playlist prev_playlist">Previous</a>
+                            </div>
                         </div>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_3; ?>">
                         </div>
