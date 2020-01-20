@@ -24,44 +24,45 @@
 
 
         <header>
-        <a href="<?php echo home_url(); ?>" class="exploration">Exploration</a>
+            <a href="<?php echo home_url(); ?>" class="exploration">Exploration</a>
 
             <a href="<?php echo home_url(); ?>" class="branding"><?php echo $site_name; ?></a>
-       
+
         </header>
 
         <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-        <div class="video_container">
-        
-        
+        <?php $post_id = get_the_ID(); ?>
 
-    <div id="player"></div>
+        <div class="video_container">
+            <div id="player"></div>
         </div>
 
 
         <div class="playlists_container">
-   
+
+        <?php $playlist_1 = get_post_meta($post_id,'playlist_1', true); ?>
+        <?php $playlist_1_title = get_post_meta($post_id,'playlist_1_title', true); ?>
+        <?php $playlist_2 = get_post_meta($post_id,'playlist_2', true); ?>
+        <?php $playlist_2_title = get_post_meta($post_id,'playlist_2_title', true); ?>
+        <?php $playlist_3 = get_post_meta($post_id,'playlist_3', true); ?>
+        <?php $playlist_3_title = get_post_meta($post_id,'playlist_3_title', true); ?>
+
             <div class="columns">
                 <div class="column">
                     <div class="playlist_container platlist_vid">
                         <div class="playlist_header">
-                            <h3>Vidéos</h3>
+                            <h3><?php echo $playlist_1_title; ?></h3>
                         </div>
-                        <?php $post_id = get_the_ID(); ?>
-                        <?php $playlist_1 = get_post_meta($post_id,'playlist_1', true); ?>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_1; ?>">
-                          
-               
                         </div>
                     </div>
                 </div>
                 <div class="column">
                     <div class="playlist_container playlist_sab">
                         <div class="playlist_header">
-                            <h3>Sabliers</h3>
+                            <h3><?php echo $playlist_2_title; ?></h3>
                         </div>
-                        <?php $playlist_2 = get_post_meta($post_id,'playlist_2', true); ?>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_2; ?>">
                         </div>
                     </div>
@@ -69,9 +70,8 @@
                 <div class="column">
                     <div class="playlist_container playlist_ent">
                         <div class="playlist_header">
-                            <h3>Entretiens</h3>
+                            <h3><?php echo $playlist_3_title; ?></h3>
                         </div>
-                        <?php $playlist_3 = get_post_meta($post_id,'playlist_3', true); ?>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_3; ?>">
                         </div>
                     </div>
@@ -81,40 +81,20 @@
         </div>
 
 
-
-
-
-
     </main>
 
 
 
-
-
-
-
     <aside id="aside">
-<br>
+        <br>
         <h2>Commentaires</h2>
 
         <?php comment_form(); ?>
-         
-        <ul  class="comments_container">
 
+        <ul class="comments_container">
+            <?php  comments_template(); ?>
+        </ul>
 
-
-        <?php  comments_template(); ?>
-
-
-   
-
-            </ul>
-
-
-
-
-
-     
 
     </aside>
 
@@ -138,7 +118,7 @@
 
 
 
-<div class="explosion"></div>
+    <div class="explosion"></div>
 
 
 
