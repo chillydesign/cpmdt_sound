@@ -49,7 +49,7 @@
                             <h3>Vidéos</h3>
                         </div>
                         <?php $post_id = get_the_ID(); ?>
-                        <?php $playlist_1 = get_post_meta($post_id,'playlist_1'); ?>
+                        <?php $playlist_1 = get_post_meta($post_id,'playlist_1', true); ?>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_1; ?>">
                           
                
@@ -61,7 +61,7 @@
                         <div class="playlist_header">
                             <h3>Sabliers</h3>
                         </div>
-                        <?php $playlist_2 = get_post_meta($post_id,'playlist_2'); ?>
+                        <?php $playlist_2 = get_post_meta($post_id,'playlist_2', true); ?>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_2; ?>">
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                         <div class="playlist_header">
                             <h3>Entretiens</h3>
                         </div>
-                        <?php $playlist_3 = get_post_meta($post_id,'playlist_3'); ?>
+                        <?php $playlist_3 = get_post_meta($post_id,'playlist_3', true); ?>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_3; ?>">
                         </div>
                     </div>
