@@ -48,7 +48,8 @@
                         <div class="playlist_header">
                             <h3>Vidéos</h3>
                         </div>
-                        <div class="playlist_videos" id="here" data-playlist="PLkLimRXN6NKwQr-G7JJsXXZOxtRaKYbv9">
+                        <?php $playlist_1 = get_post_meta('playlist_1'); ?>
+                        <div class="playlist_videos" data-playlist="<?php echo $playlist_1; ?>">
                           
                
                         </div>
@@ -59,8 +60,8 @@
                         <div class="playlist_header">
                             <h3>Sabliers</h3>
                         </div>
-                        <div class="playlist_videos" data-playlist="PLNnta0sj2F9cokLGVFS_lML2ZSoWp-bNR">
-                         
+                        <?php $playlist_2 = get_post_meta('playlist_2'); ?>
+                        <div class="playlist_videos" data-playlist="<?php echo $playlist_2; ?>">
                         </div>
                     </div>
                 </div>
@@ -69,7 +70,8 @@
                         <div class="playlist_header">
                             <h3>Entretiens</h3>
                         </div>
-                        <div class="playlist_videos" data-playlist="PLV47y92aKN_PEy2u4XV0dTg2JrTdozu8X">
+                        <?php $playlist_3 = get_post_meta('playlist_3'); ?>
+                        <div class="playlist_videos" data-playlist="<?php echo $playlist_3; ?>">
                         </div>
                     </div>
                 </div>
