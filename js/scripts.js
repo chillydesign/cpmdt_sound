@@ -42,10 +42,10 @@ function loadPlaylists() {
     for (let i = 0; i < vid_cons.length; i++) {
         const vidcon = vid_cons[i];
         const playlistId = vidcon.dataset['playlist'];
-
+        const loadFirstVideo = (i == 0);
 
         setTimeout(() => {
-            getVideosFromPlaylist(playlistId, vidcon);
+            getVideosFromPlaylist(playlistId, vidcon, loadFirstVideo);
         }, i * 500);
 
 
@@ -59,7 +59,7 @@ function loadPlaylists() {
 
 
 
-function getVideosFromPlaylist(playlist, parent) {
+function getVideosFromPlaylist(playlist, parent, loadFirstVideo) {
 
 
     const mykey = 'AIzaSyDWxcz2piVP_7PzLglaRVgUjolmzJj_iI8';
@@ -69,14 +69,19 @@ function getVideosFromPlaylist(playlist, parent) {
         return response.json();
 
     }).then(data => {
-        console.log(data);
 
         const items = data.items;
+
+        let first_video_id = null;
 
 
         items.forEach(item => {
             const videoId = item.snippet.resourceId.videoId;
             const title = item.snippet.title;
+
+            if (first_video_id == null && loadFirstVideo) {
+                first_video_id = videoId;
+            }
 
 
             var node = document.createElement("DIV");
@@ -97,11 +102,9 @@ function getVideosFromPlaylist(playlist, parent) {
 
 
             node.addEventListener('click', function () {
-                console.log('VIDEO PLAYING: ', videoId);
+                // console.log('VIDEO PLAYING: ', videoId);
                 player.loadVideoById({
-                    'videoId': videoId,
-                    'startSeconds': 5,
-                    'endSeconds': 60
+                    'videoId': videoId
                 });
 
                 document.body.scrollTop = 0; // For Safari
@@ -113,7 +116,18 @@ function getVideosFromPlaylist(playlist, parent) {
 
 
 
-        })
+        });
+
+        // load first video of first playlist automatically
+        if (first_video_id) {
+
+            player.loadVideoById({
+                'videoId': first_video_id
+            });
+
+        }
+
+
     });
 
 
