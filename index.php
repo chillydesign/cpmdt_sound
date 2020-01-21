@@ -66,8 +66,8 @@
                         <div class="playlist_header">
                             <h3><?php echo $playlist_2_title; ?></h3>
                             <div class="scroll_link_container">
-                                <a href="#platlist_vid" class="scroll_playlist prev_playlist">Previous</a>
                                 <a href="#playlist_ent" class="scroll_playlist next_playlist">Next</a>
+                                <a href="#platlist_vid" class="scroll_playlist prev_playlist">Previous</a>
                             </div>
                         </div>
                         <div class="playlist_videos" data-playlist="<?php echo $playlist_2; ?>">
@@ -109,14 +109,23 @@
     </aside>
 
     <a id="menu_button">
-        <svg id="menu_svg" [ngClass]="{white: sidebarVisible}" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 125" version="1.1" x="0px" y="0px">
-            <g fill="#ffffff">
-                <rect x="16" y="21" id="menu_bar_0" width="69" height="10" rx="5" />
-                <rect x="16" y="45" id="menu_bar_1" width="69" height="10" rx="5" />
-                <rect x="16" y="69" id="menu_bar_2" width="69" height="10" rx="5" />
-            </g>
+        
+        <svg  id="menu_svg" version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 406 386.8" style="enable-background:new 0 0 406 386.8;" xml:space="preserve">
+        <g fill="#ffffff">
+            <path class="st0" d="M406,68v186c0,37-30,68-68,68h-21v52c0,10-10,16-19,11l-127-63H67c-37,0-67-31-67-68L0,68C0,30,30,0,67,0
+                l271,0C376,0,406,30,406,68z M25,68v186c0,23,19,42,42,42h110l114,58v-58h47c24,0,43-19,43-42V68c0-24-19-43-43-43H67
+                C44,25,25,44,25,68z"/>
+            <path class="st0" d="M314,161c0,16-13,30-30,30c-16,0-30-14-30-30c0-17,14-30,30-30C301,131,314,144,314,161z M274,161
+                c0,6,4,10,10,10s10-4,10-10s-4-10-10-10S274,155,274,161z"/>
+            <path class="st0" d="M233,161c0,16-14,30-30,30c-17,0-30-14-30-30c0-17,13-30,30-30C219,131,233,144,233,161z M193,161
+                c0,6,4,10,10,10c5,0,10-4,10-10s-5-10-10-10C197,151,193,155,193,161z"/>
+            <path class="st0" d="M151,161c0,16-13,30-30,30c-16,0-29-14-29-30c0-17,13-30,29-30C138,131,151,144,151,161z M111,161
+                c0,6,5,10,10,10c6,0,11-4,11-10s-5-10-11-10C116,151,111,155,111,161z"/>
+        </g>
         </svg>
+
+
         <span>Menu</span>
     </a>
 

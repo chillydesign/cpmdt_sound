@@ -184,7 +184,7 @@ ul.comments_container {
             padding: $half_padding 0;
             margin: 0 0 $half_padding 0;
             position: sticky;
-            top: 30px;
+            top: 10px;
 
 
             h3 {
@@ -254,7 +254,7 @@ ul.comments_container {
     top: 7px;
     left: 2px;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: center;
     right: 2px;
 }
