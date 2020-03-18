@@ -57,7 +57,7 @@ function loadPlaylists() {
 function getVideosFromPlaylist(playlist, parent, loadFirstVideo) {
 
 
-    const mykey = 'AIzaSyDmf42CLbRdOrMvAh1GlkfuYz9eeRkE2wo';
+    const mykey = 'AIzaSyDWxcz2piVP_7PzLglaRVgUjolmzJj_iI8';
 
     const f = fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${playlist}&key=${mykey}`).then(response => {
 
