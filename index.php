@@ -99,12 +99,21 @@
         <br>
         <h2>Commentaires</h2>
 
+
         <?php comment_form(); ?>
 
-        <ul class="comments_container">
+        <ul class="comments_container" id="comments_container">
             <?php  comments_template(); ?>
         </ul>
 
+
+    <script>
+    var comment_info = {
+        id: <?php echo get_the_ID(); ?>,
+        rest_url: "<?php echo get_rest_url(); ?>",
+        author_id: <?php echo get_current_user_id() ; ?>,
+    };
+    </script>
 
     </aside>
 

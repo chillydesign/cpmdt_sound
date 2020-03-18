@@ -95,7 +95,7 @@ function webfactor_nav()
 
 function wf_version()
 {
-    return '0.0.3';
+    return '0.0.4';
 }
 
 // Load HTML5 Blank scripts (header.php)
@@ -561,8 +561,8 @@ add_filter('upload_mimes', 'cc_mime_types');
 
 
 
-
-
+// allow json comments to be posted by people not logged in
+add_filter( 'rest_allow_anonymous_comments', '__return_true' );
 
 
 ?>

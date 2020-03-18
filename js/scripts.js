@@ -170,6 +170,7 @@ for (let i = 0; i < scroll_playlist_links.length; i++) {
 
 
 
+
 const menubutton = document.getElementById('menu_button')
 const aside = document.getElementById('aside')
 menubutton.addEventListener('click', function () {
@@ -188,3 +189,76 @@ document.onkeyup = function (event) {
         aside.classList.remove('visible');
     }
 }
+
+
+const comments_container = document.getElementById('comments_container')
+const comment = document.getElementById('comment')
+const author = document.getElementById('author')
+const commentform = document.getElementById('commentform');
+commentform.addEventListener('submit', function (e) {
+
+    if (comment_info.author_id <= 0) {
+
+
+        e.preventDefault();
+
+        if (comment.value && comment.value != '') {
+            let data = {
+                content: comment.value,
+                post: comment_info.id,
+
+            }
+            if (author) {
+                data.author_name = author.value
+            }
+
+
+            const options = {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: { 'Content-Type': 'application/json' },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *client
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            }
+
+            const f = fetch(comment_info.rest_url + `wp/v2/comments`, options).then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                } else {
+                    return response.json();
+                }
+
+            }).then(result => {
+
+
+                var li = document.createElement("LI");
+                li.classList.add('comment_container');
+
+                var blockquote = document.createElement('BLOCKQUOTE');
+                blockquote.innerHTML = result.content.rendered;
+                li.appendChild(blockquote);
+
+                var cite = document.createElement('CITE');
+                var citetext = document.createTextNode(result.author_name);
+                cite.appendChild(citetext);
+                li.appendChild(cite);
+
+                comments_container.prepend(li);
+
+                comment.value = '';
+                alert('Comment posted successfully!');
+
+
+
+            }).catch(error => {
+                alert('An error occured. Please try again');
+                console.log('An error occured', error);
+            })
+        } // if have posted a comment
+    } // if not logged in
+
+
+});
