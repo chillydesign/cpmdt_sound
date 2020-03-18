@@ -147,6 +147,20 @@ ul.comments_container {
             font-style: italic;
             font-size: 1.2em;
         }
+
+        &.new_comment {
+            animation: newComment 5s;
+        }
+    }
+}
+
+@keyframes newComment {
+    from {
+        background-color: transparentize($brand_color, 0);
+    }
+
+    to {
+        background-color: transparentize($brand_color, 1)
     }
 }
 

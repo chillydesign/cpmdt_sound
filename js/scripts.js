@@ -236,6 +236,8 @@ commentform.addEventListener('submit', function (e) {
 
                 var li = document.createElement("LI");
                 li.classList.add('comment_container');
+                li.classList.add('new_comment');
+
 
                 var blockquote = document.createElement('BLOCKQUOTE');
                 blockquote.innerHTML = result.content.rendered;
@@ -249,7 +251,7 @@ commentform.addEventListener('submit', function (e) {
                 comments_container.prepend(li);
 
                 comment.value = '';
-                alert('Comment posted successfully!');
+
 
 
 
